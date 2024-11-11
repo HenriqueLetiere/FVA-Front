@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter';
+    box-sizing: border-item;
+    overflow: hidden;
+}
+
+/* Barra Lateral */
+
+.cabecalho {
+    background-color: #204060;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cabecalho h5 {
+    position: absolute;
+    color: #fff;
+    left: 2%;
+}
+.logo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    height: 50%;
+    position: absolute;
+    right: 2%;
+}
+
+/* Container */
+
+.tela {
+    width: 100%;
+    height: 90%;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+/* Tela Formulario */
+
+.janela-flutuante {
+    width: 1300px;
+    height: 70%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 20px #ccc;
+    border-radius: 15px;
+    background-color: #fff;
+    color: #204060;
+}
+.form-box {
+    width: 96%;
+    height: 90%;
+    overflow-y: scroll;
+    position: relative;
+    left: 5px;
+}
+.form-box::-webkit-scrollbar {
+    background-color: #fff;
+    width: 10px;
+}
+.form-box::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+/* Formulario */
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    opacity: 90%;
+}
+.titulo h1::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 200px;
+    height: 2px;
+    margin: 10px 0px;
+    border-radius: 10px;
+    background-color: #204060;
+
+}
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px 100px;
+    margin-bottom: 50px;
+}
+.formulario-item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+.formulario-item label, .sexo {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.formulario-item div {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin: 5px 0px;
+    padding: 0px 12px;
+    width: 400px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px #ccc;
+}
+
+/* Config Radio Input */
+
+.formulario-radio {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    padding: 0px 10px;
+}
+.sexo {
+    margin-bottom: 8px;
+}
+.formulario-radio-item {
+    width: 424px;
+}
+.formulario-radio-item label {
+    position: relative;
+    bottom: 2px;
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.formulario-radio-item input {
+    position: relative;
+    appearance: none;
+    border: 0;
+    outline: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #204060;
+}
+.formulario-radio-item #masculino::after,  .formulario-radio-item #feminino::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #204060;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Config Botões */
+
+.botao-voltar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+.botao-voltar button {
+    cursor: pointer;
+    background-color: #fff;
+    width: 350px;
+    height: 50px;
+    border: 3px solid #204060;
+    border-radius: 15px;
+
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #204060;
+}
+.botao-voltar button:hover {
+    background-color:#eeeeee;
+}
+
+/* Responsividade */
+
+@media screen and (min-width: 2900px) {
+    .janela-flutuante {
+        width: 2000px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .logo img {
+        height: 40%;
+    }
+    .janela-flutuante {
+        width: 900px;
+    }
+    .formulario {
+        padding: 10px 200px;
+    }
+    .botao-voltar button {
+        width: 240px;
+        height: 35px;
+        border: 2px solid #204060;
+        border-radius: 11px;
+        
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .cabecalho h5 {
+        font-size: 12px;
+    }
+    .logo img {
+        height: 30%;
+    }
+    .janela-flutuante {
+        width: 90%;
+        height: 85%;
+    }
+    .formulario {
+        padding: 10px 5%;
+    }
+    .formulario-item {
+        width: 100%;
+    }
+    .formulario-item div {
+        width: 90%;
+    }
+    .botao-finalizar, .botao-voltar {
+        padding: 10px 0px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .cabecalho h5 {
+        font-size: 10px;
+    }
+    .botao-voltar button {
+        width: 200px;
+    }
+    .formulario-item div {
+        height: 32px;
+        font-size: 10px;
+    }
+    .formulario-item label, .sexo {
+        font-size: 12px;
+    }
+    .formulario-radio-item label {
+        font-size: 10px;
+    }
+    .botao-finalizar a, .botao-voltar a {
+        font-size: 14px;
+    }
+    .titulo h1 {
+        font-size: 24px;
+    }
+    .titulo h1::after {
+        width: 140px;
+    }
+}
