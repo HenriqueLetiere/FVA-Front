@@ -309,6 +309,12 @@ a {
         width: 90%;
         height: 85%;
     }
+    .topo-lista {
+        height: 50px;
+    }
+    .lista-box {
+        top: 65px;
+    }
     .lista{
         height: 120px;
         align-items: start;
