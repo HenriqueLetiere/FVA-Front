@@ -314,6 +314,7 @@ a {
     }
     .lista-box {
         top: 65px;
+        height: calc(100% - 150px);
     }
     .lista{
         height: 120px;
