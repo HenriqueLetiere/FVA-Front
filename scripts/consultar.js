@@ -33,8 +33,8 @@ function listar() {
     });
 }
 
-function del(id) {
-    fetch(`https://meticulous-learning-production.up.railway.app/servico/${id}`,
+async function del(id) {
+    await fetch(`https://meticulous-learning-production.up.railway.app/servico/${id}`,
         {
             method: "DELETE",
         }

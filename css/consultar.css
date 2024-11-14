@@ -69,7 +69,7 @@
 
 /* Divs da Lista */
 
-.topo-lista{
+.topo-lista {
     background-color: #204060;
     width: 100%;
     height: 80px;
@@ -122,7 +122,7 @@
 .id-topo, .nome-topo, .tipo-topo, .id-lista, .nome-lista, .tipo-lista{
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 90%;
     letter-spacing: 2px;
     margin-right: 20px;
 }
@@ -177,13 +177,16 @@
     background-color:#eee;
 }
 .botao-lista {
-    width: 40%;
+    width: 400px;
     height: 80px;
     right: 0;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+a {
+    text-decoration: none;
 }
 #botao-ver, #botao-editar, #botao-excluir {
     cursor: pointer;
@@ -240,11 +243,11 @@
     .janela-flutuante {
         width: 900px;
     }
-    .lista{
-        height: 56px;
-    }
     .lista-box {
         height: calc(100% - 176px);
+    }
+    .lista{
+        height: 56px;
     }
     .id-topo, .nome-topo, .tipo-topo, .id-lista, .nome-lista, .tipo-lista{
         margin-right: 25px;
@@ -263,8 +266,11 @@
     .nome-topo, .tipo-topo, .nome-lista, .tipo-lista {
         width: 220px;
     }
+    .botao-lista {
+        width: 280px;
+    }
     #botao-ver, #botao-editar, #botao-excluir {
-        width: 70px;
+        width: 75px;
         height: 27px;
         border-radius: 7px;
         border: 1.5px solid #204060;
@@ -272,10 +278,10 @@
         font-size: 10px;
     }
     #botao-ver {
-        right: 182px;
+        right: 192px;
     }
     #botao-editar {
-        right: 105px;
+        right: 110px;
     }
     #botao-excluir {
         right: 28px;
@@ -305,22 +311,48 @@
     }
     .lista{
         height: 120px;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
     }
-    .botao-lista {
-        height: 120px;
+    .id-topo, .nome-topo, .tipo-topo {
+        display: none;
     }
-    #botao-ver, #botao-editar, #botao-excluir {
-        right: 28px;
-    }
-    #botao-ver {
-        top: 10px;
-    }
-    #botao-excluir {
-        bottom: 10px;
+    .id-lista, .nome-lista, .tipo-lista {
+        justify-content: start;
+        margin: 0;
+        width: 280px;
+        height: 25px;
+        margin-left: 18px;
+
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1px;
     }
 }
 @media screen and (max-width: 700px) {
     .cabecalho h5 {
         font-size: 10px;
+    }
+    .botao-lista {
+        width: 120px;
+        height: 110px;
+        flex-direction: column;
+    }
+    #botao-ver, #botao-editar, #botao-excluir {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: 0;
+    }
+    #botao-editar {
+        margin: 6px 0;
+    }
+}
+@media screen and (max-width: 450px) {
+    .id-lista, .nome-lista, .tipo-lista {
+        font-size: 7px;
     }
 }
