@@ -20,7 +20,7 @@ const idP = urlP.get("id");
 
 function listar() {
 
-    fetch(`http://localhost:8080/novoservico/${idP}`)
+    fetch(`meticulous-learning-production.up.railway.app/servico/${idP}`)
     .then(res => res.json())
     .then(lista => {
 

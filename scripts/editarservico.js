@@ -21,7 +21,7 @@ const idP = urlP.get("id");
 
 function enviar() {
 
-    fetch(`http://localhost:8080/novoservico/${idP}`,
+    fetch(`meticulous-learning-production.up.railway.app/servico/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',
