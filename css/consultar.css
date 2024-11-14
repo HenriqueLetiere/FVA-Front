@@ -22,7 +22,7 @@
 .cabecalho h5 {
     position: absolute;
     color: #fff;
-    left: 2%;
+    left: 30px;
 }
 .logo {
     width: 100%;
@@ -35,7 +35,7 @@
 .logo img {
     height: 50%;
     position: absolute;
-    right: 2%;
+    right: 30px;
 }
 
 /* Container */
@@ -176,6 +176,15 @@
 .botao-voltar button:hover {
     background-color:#eee;
 }
+.botao-lista {
+    width: 40%;
+    height: 80px;
+    right: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #botao-ver, #botao-editar, #botao-excluir {
     cursor: pointer;
     position: absolute;
@@ -293,6 +302,21 @@
     .janela-flutuante {
         width: 90%;
         height: 85%;
+    }
+    .lista{
+        height: 120px;
+    }
+    .botao-lista {
+        height: 120px;
+    }
+    #botao-ver, #botao-editar, #botao-excluir {
+        right: 28px;
+    }
+    #botao-ver {
+        top: 10px;
+    }
+    #botao-excluir {
+        bottom: 10px;
     }
 }
 @media screen and (max-width: 700px) {

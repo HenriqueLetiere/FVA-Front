@@ -56,5 +56,6 @@ form.addEventListener('submit', function(event) {
     event.preventDefault();
     enviar();
     location.reload();
+    window.location.href = "index.html";
 
 });

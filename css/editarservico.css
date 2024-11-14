@@ -22,7 +22,7 @@
 .cabecalho h5 {
     position: absolute;
     color: #fff;
-    left: 2%;
+    left: 30px;
 }
 .logo {
     width: 100%;
@@ -35,7 +35,7 @@
 .logo img {
     height: 50%;
     position: absolute;
-    right: 2%;
+    right: 30px;
 }
 
 /* Container */

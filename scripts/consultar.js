@@ -22,9 +22,11 @@ function listar() {
                 <div class="nome-lista"><p>${lista.nome}</p></div>
                 <div class="tipo-lista"><p>${lista.tiposerv}</p></div>
                 
-                <a href="verservico.html?id=${lista.id}"><button id="botao-ver">Ver mais</button></a>
-                <a href="editarservico.html?id=${lista.id}"><button id="botao-editar">Editar</button></a>
-                <button id="botao-excluir" onclick="del(${lista.id})">Excluir</button>
+                <div class="botao-lista">
+                    <a href="verservico.html?id=${lista.id}"><button id="botao-ver">Ver mais</button></a>
+                    <a href="editarservico.html?id=${lista.id}"><button id="botao-editar">Editar</button></a>
+                    <button id="botao-excluir" onclick="del(${lista.id})">Excluir</button>
+                </div>
 
                 </div>`);
         });
