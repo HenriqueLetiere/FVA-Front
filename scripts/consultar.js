@@ -3,7 +3,7 @@ function listar() {
     var cor = "";
     const ul = document.querySelector('ul');
 
-    fetch(`meticulous-learning-production.up.railway.app/servico`)
+    fetch(`https://meticulous-learning-production.up.railway.app/servico`)
     .then(res => res.json())
     .then(data => {
         data.forEach(lista => {
@@ -32,7 +32,7 @@ function listar() {
 }
 
 function del(id) {
-    fetch(`meticulous-learning-production.up.railway.app/servico/${id}`,
+    fetch(`https://meticulous-learning-production.up.railway.app/servico/${id}`,
         {
             method: "DELETE",
         }

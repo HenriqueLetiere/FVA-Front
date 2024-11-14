@@ -21,7 +21,7 @@ const idP = urlP.get("id");
 
 function enviar() {
 
-    fetch(`meticulous-learning-production.up.railway.app/servico/${idP}`,
+    fetch(`https://meticulous-learning-production.up.railway.app/servico/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',

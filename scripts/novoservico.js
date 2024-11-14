@@ -18,7 +18,7 @@ const SdataFim = document.querySelector("#datafim");
 
 function enviar() {
 
-    fetch("meticulous-learning-production.up.railway.app/servico",
+    fetch("https://meticulous-learning-production.up.railway.app/servico",
         {
             headers:{
                 'Accept': 'application/json',
