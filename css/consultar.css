@@ -328,7 +328,7 @@ a {
     .id-lista, .nome-lista, .tipo-lista {
         justify-content: start;
         margin: 0;
-        width: 200px;
+        width: 300px;
         height: 30px;
         margin-left: 18px;
 
@@ -358,8 +358,8 @@ a {
         margin: 6px 0;
     }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
     .id-lista, .nome-lista, .tipo-lista {
-        width: 140px;
+        width: 55%;
     }
 }
