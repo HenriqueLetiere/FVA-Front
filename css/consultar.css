@@ -363,3 +363,8 @@ a {
         width: 55%;
     }
 }
+@media screen and (max-width: 350px) {
+    .id-lista, .nome-lista, .tipo-lista {
+        width: 50%;
+    }
+}
