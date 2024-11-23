@@ -118,19 +118,16 @@
     font-weight: 600;
     letter-spacing: 1px;
 }
-.formulario-item div {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1px;
+.formulario-item input {
     margin: 5px 0px;
-    padding: 0px 12px;
+    padding: 12px;
     width: 400px;
-    height: 40px;
     border: none;
     border-radius: 8px;
     box-shadow: 1px 1px 5px #ccc;
+}
+.formulario-item input:focus-visible {
+    outline: none;
 }
 
 /* Config Radio Input */
@@ -158,6 +155,7 @@
 .formulario-radio-item input {
     position: relative;
     appearance: none;
+    cursor: pointer;
     border: 0;
     outline: 0;
     width: 14px;
@@ -165,17 +163,22 @@
     border-radius: 50%;
     border: 1px solid #204060;
 }
-.formulario-radio-item #masculino::after,  .formulario-radio-item #feminino::after {
+.formulario-radio-item input::after {
     content: '';
     position: absolute;
     display: block;
-    width: 8px;
-    height: 8px;
+    width: 0;
+    height: 0;
     border-radius: 50%;
     background-color: #204060;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: width .1s ease-in-out, height .1s ease-in-out;
+}
+.formulario-radio-item input:checked::after {
+    width: 8px;
+    height: 8px;
 }
 
 /* Config Botões */
