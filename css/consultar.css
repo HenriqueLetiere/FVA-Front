@@ -162,21 +162,20 @@ dialog {
 .titulo, .popup-editar, .popup-voltar {
     position: absolute;
     width: 100%;
-    height: 80px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 .titulo {
-    top: 50px;
+    bottom: 150px;
 }
 .popup-editar {
-    height: 100%;
     flex-direction: column;
 }
 .popup-voltar {
-    bottom: 50px;
+    top: 150px;
 }
 .titulo h1 {
     font-size: 30px;
@@ -385,6 +384,41 @@ a {
         
         font-size: 14px;
     }
+    dialog {
+        width: 400px;
+        height: 340px;
+    }
+    .titulo {
+        bottom: 100px;
+    }
+    .popup-voltar {
+        top: 100px;
+    }
+    .titulo h1 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .titulo h1::after {
+        width: 250px;
+    }
+    .popup-editar button {
+        border-radius: 11px;
+        width: 210px;
+        height: 35px;
+    
+        font-size: 11px;
+    }
+    #popup-veiculo {
+        margin: 7px 0px;
+    }
+    .popup-voltar button {
+        border: 2px solid #204060;
+        border-radius: 11px;
+        width: 200px;
+        height: 35px;
+        
+        font-size: 14px;
+    }
 }
 @media screen and (max-width: 1000px) {
     .cabecalho h5 {
@@ -445,10 +479,36 @@ a {
     #botao-editar {
         margin: 6px 0;
     }
+    dialog {
+        width: 320px;
+    }
 }
 @media screen and (max-width: 500px) {
     .id-lista, .nome-lista, .tipo-lista {
         width: 55%;
+    }
+    dialog {
+        width: 250px;
+    }
+    .titulo h1 {
+        font-size: 16px;
+    }
+    .titulo h1::after {
+        width: 200px;
+    }
+    .popup-editar button {
+        width: 170px;
+        height: 32px;
+        border-radius: 10px;
+
+        font-size: 9px;
+    }
+    .popup-voltar button {
+        width: 160px;
+        height: 32px;
+        border-radius: 10px;
+
+        font-size: 11px;
     }
 }
 @media screen and (max-width: 350px) {
