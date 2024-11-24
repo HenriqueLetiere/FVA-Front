@@ -155,7 +155,6 @@
 .formulario-radio-item input {
     position: relative;
     appearance: none;
-    cursor: pointer;
     border: 0;
     outline: 0;
     width: 14px;
