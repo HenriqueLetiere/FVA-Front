@@ -26,7 +26,7 @@ async function listar() {
 
     }
 
-    await fetch(localhost + `/listativos/${idP}`)
+    await fetch(railway + `/listativos/${idP}`)
     .then(res => res.json())
     .then(lista => {
 
@@ -144,7 +144,7 @@ async function enviarcliente() {
     const Pcpf = document.querySelector("#cpf");
     const Ptelefone = document.querySelector("#telefone");
 
-    await fetch(localhost + `/cliente/${idP}`,
+    await fetch(railway + `/cliente/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -175,7 +175,7 @@ async function enviarveiculo() {
     const Vano = document.querySelector("#ano");
     const Vplaca = document.querySelector("#placa");
 
-    await fetch(localhost + `/veiculo/${idP}`,
+    await fetch(railway + `/veiculo/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -204,7 +204,7 @@ async function enviarservico() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(localhost + `/servico/${idP}`,
+    await fetch(railway + `/servico/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -244,7 +244,7 @@ async function enviarlista() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(localhost + `/listativos/${idP}`,
+    await fetch(railway + `/listativos/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',

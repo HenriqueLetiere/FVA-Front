@@ -104,7 +104,7 @@ async function enviarcliente() {
     const Pcpf = document.querySelector("#cpf");
     const Ptelefone = document.querySelector("#telefone");
 
-    await fetch(localhost + `/cliente`,
+    await fetch(railway + `/cliente`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -134,7 +134,7 @@ async function enviarveiculo() {
     const Vano = document.querySelector("#ano");
     const Vplaca = document.querySelector("#placa");
 
-    await fetch(localhost + `/veiculo`,
+    await fetch(railway + `/veiculo`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -162,7 +162,7 @@ async function enviarservico() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(localhost + `/servico`,
+    await fetch(railway + `/servico`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -201,7 +201,7 @@ async function enviarlista() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(localhost + `/listativos`,
+    await fetch(railway + `/listativos`,
         {
             headers:{
                 'Accept': 'application/json',

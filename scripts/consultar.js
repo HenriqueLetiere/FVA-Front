@@ -6,7 +6,7 @@ async function listar() {
     var cor = "";
     const ul = document.querySelector('ul');
 
-    await fetch(localhost + `/listativos`)
+    await fetch(railway + `/listativos`)
     .then(res => res.json())
     .then(data => {
         data.forEach(lista => {
@@ -37,7 +37,7 @@ async function listar() {
 };
 
 async function del(id) {
-    await fetch(localhost + `/listativos/${id}`,
+    await fetch(railway + `/listativos/${id}`,
         {
             method: "DELETE",
         }
