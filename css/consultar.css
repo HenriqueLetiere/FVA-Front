@@ -222,10 +222,10 @@ dialog {
     border: 3px solid #204060;
     border-radius: 15px;
     width: 300px;
-    height: 50px;
+    height: 48px;
     
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     letter-spacing: 2px;
     color: #204060;   
@@ -416,9 +416,9 @@ a {
         border: 2px solid #204060;
         border-radius: 11px;
         width: 200px;
-        height: 35px;
+        height: 33px;
         
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 @media screen and (max-width: 1000px) {
@@ -512,10 +512,10 @@ a {
     }
     .popup-voltar button {
         width: 160px;
-        height: 32px;
+        height: 30px;
         border-radius: 10px;
 
-        font-size: 12px;
+        font-size: 11px;
     }
 }
 @media screen and (max-width: 350px) {
