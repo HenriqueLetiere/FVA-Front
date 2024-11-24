@@ -201,7 +201,7 @@ async function enviarlista() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(railway + `/listativos`,
+    await fetch(railway + `/ativos`,
         {
             headers:{
                 'Accept': 'application/json',

@@ -26,7 +26,7 @@ async function listar() {
 
     }
 
-    await fetch(railway + `/listativos/${idP}`)
+    await fetch(railway + `/ativos/${idP}`)
     .then(res => res.json())
     .then(lista => {
 
@@ -244,7 +244,7 @@ async function enviarlista() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch(railway + `/listativos/${idP}`,
+    await fetch(railway + `/ativos/${idP}`,
         {
             headers:{
                 'Accept': 'application/json',

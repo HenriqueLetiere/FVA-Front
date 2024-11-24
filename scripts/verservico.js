@@ -7,7 +7,7 @@ const idP = urlP.get("id");
 
 async function listar() {
 
-    await fetch(railway + `/listativos/${idP}`)
+    await fetch(railway + `/ativos/${idP}`)
     .then(res => res.json())
     .then(lista => {
         form.insertAdjacentHTML('beforeend', `
