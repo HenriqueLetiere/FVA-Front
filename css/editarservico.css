@@ -132,6 +132,9 @@
 .formulario-item input:focus-visible {
     outline: 0.1px solid #204060;
 }
+.displayoff {
+    display: none;
+}
 
 /* Config Radio Input */
 

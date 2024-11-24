@@ -1,10 +1,13 @@
+const localhost = "http://localhost:8080";
+const railway = "https://meticulous-learning-production.up.railway.app";
+
 const form = document.querySelector('.janela-flutuante');
 const urlP = new URLSearchParams(window.location.search);
 const idP = urlP.get("id");
 
 async function listar() {
 
-    await fetch(`https://meticulous-learning-production.up.railway.app/servico/${idP}`)
+    await fetch(localhost + `/listativos/${idP}`)
     .then(res => res.json())
     .then(lista => {
         form.insertAdjacentHTML('beforeend', `

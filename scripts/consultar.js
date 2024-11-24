@@ -1,9 +1,12 @@
-function listar() {
+const localhost = "http://localhost:8080";
+const railway = "https://meticulous-learning-production.up.railway.app";
+
+async function listar() {
     var bcor = 0;
     var cor = "";
     const ul = document.querySelector('ul');
 
-    fetch(`https://meticulous-learning-production.up.railway.app/servico`)
+    await fetch(localhost + `/listativos`)
     .then(res => res.json())
     .then(data => {
         data.forEach(lista => {
@@ -24,17 +27,17 @@ function listar() {
                 
                 <div class="botao-lista">
                     <a href="verservico.html?id=${lista.id}"><button id="botao-ver">Ver mais</button></a>
-                    <a href="editarservico.html?id=${lista.id}"><button id="botao-editar">Editar</button></a>
+                    <button id="botao-editar" onclick="popup(${lista.id})">Editar</button>
                     <button id="botao-excluir" onclick="del(${lista.id})">Excluir</button>
                 </div>
 
-                </div>`);
-        });
-    });
-}
+            </div>`);
+        })
+    })
+};
 
 async function del(id) {
-    await fetch(`https://meticulous-learning-production.up.railway.app/servico/${id}`,
+    await fetch(localhost + `/listativos/${id}`,
         {
             method: "DELETE",
         }
@@ -44,6 +47,27 @@ async function del(id) {
     location.reload();
 };
 
-/* Listar Itens */
+async function popup(id) {
+    const popup = document.querySelector("dialog");
+    const btncliente = document.getElementById("popup-cliente");
+    const btnveiculo = document.getElementById("popup-veiculo");
+    const btnservico = document.getElementById("popup-servico");
+    const btnvoltar = document.getElementById("popup-btnvoltar");
+
+    popup.showModal();
+
+    btncliente.onclick = function() {
+        window.location.href = `editarservico.html?id=${id}&editar=c`;
+    }
+    btnveiculo.onclick = function() { 
+        window.location.href = `editarservico.html?id=${id}&editar=v`;
+    }
+    btnservico.onclick = function() {
+        window.location.href = `editarservico.html?id=${id}&editar=s`;
+    }
+    btnvoltar.onclick = function() {
+        popup.close();
+    }
+};
 
 listar();

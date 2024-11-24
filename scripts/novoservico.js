@@ -1,3 +1,6 @@
+const localhost = "http://localhost:8080";
+const railway = "https://meticulous-learning-production.up.railway.app";
+
 const form = document.querySelector("form");
 var data = new Date();
 const dataAtual = data.toLocaleDateString("pt-BR");
@@ -93,7 +96,94 @@ async function listar() {
     
 };
 
-async function enviar() {
+async function enviarcliente() {
+
+    const Pnome = document.querySelector("#nome");
+    const PdataNasc = document.querySelector("#datanasc");
+    const Prg = document.querySelector("#rg");
+    const Pcpf = document.querySelector("#cpf");
+    const Ptelefone = document.querySelector("#telefone");
+
+    await fetch(localhost + `/cliente`,
+        {
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+
+                nome: Pnome.value.toUpperCase(),
+                datanasc: PdataNasc.value,
+                rg: Prg.value,
+                cpf: Pcpf.value,
+                telefone: Ptelefone.value,
+                sexo: $('input[name=sexo]:checked').val()
+
+            })
+        }
+    )
+    .then(function (res) { console.log(res) })
+    .catch(function (res) { console.log(res) })
+};
+
+async function enviarveiculo() {
+
+    const Vfabricante = document.querySelector("#fabricante");
+    const Vmodelo = document.querySelector("#modelo");
+    const Vano = document.querySelector("#ano");
+    const Vplaca = document.querySelector("#placa");
+
+    await fetch(localhost + `/veiculo`,
+        {
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+
+                fabricante: Vfabricante.value.toUpperCase(),
+                modelo: Vmodelo.value.toUpperCase(),
+                ano: Vano.value,
+                placa: Vplaca.value.toUpperCase()
+
+            })
+        }
+    )
+    .then(function (res) { console.log(res) })
+    .catch(function (res) { console.log(res) })
+};
+
+async function enviarservico() {
+
+    const StipoServ = document.querySelector("#tiposerv");
+    const SvalorServ = document.querySelector("#valorserv");
+    const SdataIni = document.querySelector("#dataini");
+    const SdataFim = document.querySelector("#datafim");
+
+    await fetch(localhost + `/servico`,
+        {
+            headers:{
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({
+
+                tiposerv: StipoServ.value.toUpperCase(),
+                valorserv: SvalorServ.value,
+                dataini: SdataIni.value,
+                datafim: SdataFim.value
+
+            })
+        }
+    )
+    .then(function (res) { console.log(res) })
+    .catch(function (res) { console.log(res) })
+};
+
+async function enviarlista() {
 
     const Pnome = document.querySelector("#nome");
     const PdataNasc = document.querySelector("#datanasc");
@@ -111,7 +201,7 @@ async function enviar() {
     const SdataIni = document.querySelector("#dataini");
     const SdataFim = document.querySelector("#datafim");
 
-    await fetch("https://meticulous-learning-production.up.railway.app/servico",
+    await fetch(localhost + `/listativos`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -150,6 +240,9 @@ listar();
 form.addEventListener('submit', function(event) {
 
     event.preventDefault();
-    enviar();
+    enviarcliente();
+    enviarveiculo();
+    enviarservico();
+    enviarlista();
 
 });
