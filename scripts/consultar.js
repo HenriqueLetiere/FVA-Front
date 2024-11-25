@@ -9,7 +9,7 @@ async function listar() {
     await fetch(railway + `/ativos`)
     .then(res => res.json())
     .then(data => {
-        data.forEach(lista => {
+        data.reverse().forEach(lista => {
 
             if (bcor == 0) {
                 cor = "#f5f5f5";
