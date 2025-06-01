@@ -59,7 +59,7 @@ async function listar() {
             <div class="tipo-lista"><p>${servicos[cont][1]}</p></div>
             
             <div class="botao-lista">
-                <a href="verOS.html?id=${clientes[cont][0]}"><button id="botao-ver">Ver mais</button></a>
+                <a href="ver-OS.html?id=${clientes[cont][0]}"><button id="botao-ver">Ver mais</button></a>
                 <button id="botao-editar" onclick="popup(${clientes[cont][0]})">Editar</button>
                 <button id="botao-excluir" onclick="del(${clientes[cont][0]})">Excluir</button>
             </div>
@@ -80,13 +80,13 @@ async function popup(id) {
     popup.showModal();
 
     btncliente.onclick = function() {
-        window.location.href = `editarOS.html?id=${id}&editar=c`;
+        window.location.href = `editar-OS.html?id=${id}&editar=c`;
     }
     btnveiculo.onclick = function() { 
-        window.location.href = `editarOS.html?id=${id}&editar=v`;
+        window.location.href = `editar-OS.html?id=${id}&editar=v`;
     }
     btnservico.onclick = function() {
-        window.location.href = `editarOS.html?id=${id}&editar=s`;
+        window.location.href = `editar-OS.html?id=${id}&editar=s`;
     }
     btnvoltar.onclick = function() {
         popup.close();

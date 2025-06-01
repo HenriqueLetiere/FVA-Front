@@ -111,7 +111,7 @@ async function listar() {
 
         </div>
 
-        <div class="botao-voltar"><a href="consultarOS.html"><button>Voltar</button></a></div>
+        <div class="botao-voltar"><a href="consultar-OS.html"><button>Voltar</button></a></div>
     `);
 
     if (clientes[6] == "MASCULINO") {

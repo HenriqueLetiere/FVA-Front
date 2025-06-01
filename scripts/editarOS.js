@@ -241,5 +241,5 @@ form.addEventListener('submit', async function(event) {
 
     }
 
-    location.href = "consultarOS.html";
+    location.href = "consultar-OS.html";
 });
