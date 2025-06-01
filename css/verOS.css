@@ -61,7 +61,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 5px 5px 20px #ccc;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #fff;
     color: #204060;
 }
@@ -251,10 +251,10 @@
     .formulario-item {
         width: 100%;
     }
-    .formulario-item div {
+    .formulario-item input {
         width: 90%;
     }
-    .botao-finalizar, .botao-voltar {
+    .botao-voltar {
         padding: 10px 0px;
     }
 }
@@ -265,9 +265,9 @@
     .botao-voltar button {
         width: 200px;
     }
-    .formulario-item div {
-        height: 32px;
-        font-size: 10px;
+    .formulario-item input {
+        padding: 8px;
+        font-size: 12px;
     }
     .formulario-item label, .sexo {
         font-size: 12px;
@@ -275,7 +275,7 @@
     .formulario-radio-item label {
         font-size: 10px;
     }
-    .botao-finalizar a, .botao-voltar a {
+    .botao-voltar a {
         font-size: 14px;
     }
     .titulo h1 {

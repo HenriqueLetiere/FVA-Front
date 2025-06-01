@@ -1,9 +1,11 @@
 const localhost = "http://localhost:8080";
 const railway = "https://meticulous-learning-production.up.railway.app";
+const api_url = localhost;
+
+const data = new Date();
+const dataAtual = data.toLocaleDateString("pt-BR");
 
 const form = document.querySelector("form");
-var data = new Date();
-const dataAtual = data.toLocaleDateString("pt-BR");
 
 async function listar() {
     form.insertAdjacentHTML('beforeend', `
@@ -94,17 +96,17 @@ async function listar() {
     $('#dataini').mask('00/00/0000');
     $('#datafim').mask('00/00/0000');
     
-};
+}
 
-async function enviarcliente() {
+async function enviarCliente() {
 
-    const Pnome = document.querySelector("#nome");
-    const PdataNasc = document.querySelector("#datanasc");
-    const Prg = document.querySelector("#rg");
-    const Pcpf = document.querySelector("#cpf");
-    const Ptelefone = document.querySelector("#telefone");
+    let Cnome = document.querySelector("#nome");
+    let CdataNasc = document.querySelector("#datanasc");
+    let Crg = document.querySelector("#rg");
+    let Ccpf = document.querySelector("#cpf");
+    let Ctelefone = document.querySelector("#telefone");
 
-    await fetch(railway + `/cliente`,
+    await fetch(api_url + `/clientes`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -113,28 +115,26 @@ async function enviarcliente() {
             method: "POST",
             body: JSON.stringify({
 
-                nome: Pnome.value.toUpperCase(),
-                datanasc: PdataNasc.value,
-                rg: Prg.value,
-                cpf: Pcpf.value,
-                telefone: Ptelefone.value,
+                nome: Cnome.value.toUpperCase(),
+                datanasc: CdataNasc.value,
+                rg: Crg.value,
+                cpf: Ccpf.value,
+                telefone: Ctelefone.value,
                 sexo: $('input[name=sexo]:checked').val()
 
             })
         }
-    )
-    .then(function (res) { console.log(res) })
-    .catch(function (res) { console.log(res) })
-};
+    );
+}
 
-async function enviarveiculo() {
+async function enviarVeiculo() {
 
-    const Vfabricante = document.querySelector("#fabricante");
-    const Vmodelo = document.querySelector("#modelo");
-    const Vano = document.querySelector("#ano");
-    const Vplaca = document.querySelector("#placa");
+    let Vfabricante = document.querySelector("#fabricante");
+    let Vmodelo = document.querySelector("#modelo");
+    let Vano = document.querySelector("#ano");
+    let Vplaca = document.querySelector("#placa");
 
-    await fetch(railway + `/veiculo`,
+    await fetch(api_url + `/veiculos`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -150,19 +150,17 @@ async function enviarveiculo() {
 
             })
         }
-    )
-    .then(function (res) { console.log(res) })
-    .catch(function (res) { console.log(res) })
-};
+    );
+}
 
-async function enviarservico() {
+async function enviarServico() {
 
-    const StipoServ = document.querySelector("#tiposerv");
-    const SvalorServ = document.querySelector("#valorserv");
-    const SdataIni = document.querySelector("#dataini");
-    const SdataFim = document.querySelector("#datafim");
+    let StipoServ = document.querySelector("#tiposerv");
+    let SvalorServ = document.querySelector("#valorserv");
+    let SdataIni = document.querySelector("#dataini");
+    let SdataFim = document.querySelector("#datafim");
 
-    await fetch(railway + `/servico`,
+    await fetch(api_url + `/servicos`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -178,71 +176,16 @@ async function enviarservico() {
 
             })
         }
-    )
-    .then(function (res) { console.log(res) })
-    .catch(function (res) { console.log(res) })
-};
-
-async function enviarlista() {
-
-    const Pnome = document.querySelector("#nome");
-    const PdataNasc = document.querySelector("#datanasc");
-    const Prg = document.querySelector("#rg");
-    const Pcpf = document.querySelector("#cpf");
-    const Ptelefone = document.querySelector("#telefone");
-
-    const Vfabricante = document.querySelector("#fabricante");
-    const Vmodelo = document.querySelector("#modelo");
-    const Vano = document.querySelector("#ano");
-    const Vplaca = document.querySelector("#placa");
-
-    const StipoServ = document.querySelector("#tiposerv");
-    const SvalorServ = document.querySelector("#valorserv");
-    const SdataIni = document.querySelector("#dataini");
-    const SdataFim = document.querySelector("#datafim");
-
-    await fetch(railway + `/ativos`,
-        {
-            headers:{
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            method: "POST",
-            body: JSON.stringify({
-
-                nome: Pnome.value.toUpperCase(),
-                datanasc: PdataNasc.value,
-                rg: Prg.value,
-                cpf: Pcpf.value,
-                telefone: Ptelefone.value,
-                sexo: $('input[name=sexo]:checked').val(),
-
-                fabricante: Vfabricante.value.toUpperCase(),
-                modelo: Vmodelo.value.toUpperCase(),
-                ano: Vano.value,
-                placa: Vplaca.value.toUpperCase(),
-
-                tiposerv: StipoServ.value.toUpperCase(),
-                valorserv: SvalorServ.value,
-                dataini: SdataIni.value,
-                datafim: SdataFim.value
-
-            })
-        }
-    )
-    .then(function (res) { console.log(res) })
-    .catch(function (res) { console.log(res) })
-    location.reload();
-    window.location.href = "index.html";
-};
-
+    );
+}
+    
 listar();
-form.addEventListener('submit', function(event) {
-
+form.addEventListener('submit', async function(event) {
     event.preventDefault();
-    enviarcliente();
-    enviarveiculo();
-    enviarservico();
-    enviarlista();
 
+    await enviarCliente();
+    await enviarVeiculo();
+    await enviarServico();
+
+    location.href = "index.html";
 });

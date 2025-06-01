@@ -61,7 +61,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 5px 5px 20px #ccc;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #fff;
     color: #204060;
 }
@@ -131,9 +131,6 @@
 }
 .formulario-item input:focus-visible {
     outline: 0.1px solid #204060;
-}
-.displayoff {
-    display: none;
 }
 
 /* Config Radio Input */
@@ -309,6 +306,7 @@
     }
     .formulario-item input {
         padding: 8px;
+        font-size: 12px;
     }
     .formulario-item label, .sexo {
         font-size: 12px;

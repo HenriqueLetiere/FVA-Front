@@ -62,7 +62,7 @@
     justify-content: center;
     flex-direction: column;
     box-shadow: 5px 5px 20px #ccc;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: #fff;
     color: #204060;
 }
@@ -137,7 +137,7 @@
     letter-spacing: 1px;
 }
 .id-topo, .id-lista {
-    width: 50px;
+    width: 80px;
     margin-left: 50px;
     margin-right: 80px;
     justify-content: center;
@@ -433,10 +433,10 @@ a {
         height: 85%;
     }
     .topo-lista {
-        height: 50px;
+        height: 20px;
     }
     .lista-box {
-        top: 65px;
+        top: 30px;
         height: calc(100% - 150px);
     }
     .lista{
