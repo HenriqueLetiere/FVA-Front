@@ -82,6 +82,9 @@
     height: 80px;
     margin: 10px 0px;
 }
+.botao a {
+    border-radius: 16px;    
+}
 .botao button {
     border: none;
     cursor: pointer;
