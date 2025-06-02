@@ -1,5 +1,5 @@
 const localhost = "http://localhost:8080";
-const railway = "flask-production-fva.up.railway.app";
+const railway = "https://flask-production-fva.up.railway.app";
 const api_url = railway;
 
 const urlOS = new URLSearchParams(window.location.search);
