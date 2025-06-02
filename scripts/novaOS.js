@@ -1,6 +1,6 @@
 const localhost = "http://localhost:8080";
-const railway = "https://meticulous-learning-production.up.railway.app";
-const api_url = localhost;
+const railway = "flask-production-fva.up.railway.app";
+const api_url = railway;
 
 const data = new Date();
 const dataAtual = data.toLocaleDateString("pt-BR");
