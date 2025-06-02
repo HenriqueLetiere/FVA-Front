@@ -83,7 +83,7 @@
     margin: 10px 0px;
 }
 .botao a {
-    border-radius: 16px;    
+    border-radius: 16px;
 }
 .botao button {
     border: none;
@@ -128,9 +128,12 @@
     .botao button {
         width: 315px;
         height: 63px;
-        border-radius: 18px;
+        border-radius: 14px;
 
         font-size: 14px;
+    }
+    .botao a {
+        border-radius: 14px;
     }
 }
 
@@ -156,9 +159,12 @@
     .botao button {
         width: 280px;
         height: 56px;
-        border-radius: 16px;
+        border-radius: 12px;
 
         font-size: 12px;
+    }
+    .botao a {
+        border-radius: 12px;
     }
 }
 
@@ -181,9 +187,12 @@
     .botao button {
         width: 245px;
         height: 49px;
-        border-radius: 14px;
+        border-radius: 10px;
 
         font-size: 10px;
+    }
+    .botao a {
+        border-radius: 10px;
     }
 }
 
