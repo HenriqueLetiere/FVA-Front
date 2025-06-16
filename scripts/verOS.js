@@ -38,7 +38,7 @@ async function listar() {
 
     form.insertAdjacentHTML('beforeend', `
 
-        <div class="titulo"><h1>Pessoa</h1></div>
+        <div class="titulo"><h1>Cliente</h1></div>
         <div class="formulario">
 
             <div class="formulario-item">
