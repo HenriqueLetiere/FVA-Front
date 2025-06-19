@@ -104,7 +104,7 @@ async function del(id) {
         method: "DELETE",
     })
     
-    location.reload();
+    listar();
 }
 
 listar();
