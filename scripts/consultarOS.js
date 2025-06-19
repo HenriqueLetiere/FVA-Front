@@ -103,7 +103,8 @@ async function del(id) {
     await fetch(api_url + `/servicos/${id}`, {
         method: "DELETE",
     })
-    
+
+    ul.innerHTML = "";
     listar();
 }
 
