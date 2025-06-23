@@ -1,9 +1,6 @@
 const localhost = "http://localhost:8080";
 const railway = "https://flask-production-fva.up.railway.app";
-const api_url = railway;
-
-const data = new Date();
-const dataAtual = data.toLocaleDateString("pt-BR");
+const api_url = localhost;
 
 const form = document.querySelector("form");
 
@@ -35,8 +32,8 @@ async function listar() {
 
             <div class="formulario-radio">
                 <div class="sexo">Sexo:</div>
-                <div class="formulario-radio-item"><input type="radio" id="masculino" value="MASCULINO" name="sexo" required><label for="masculino">Masculino</label></div>
-                <div class="formulario-radio-item"><input type="radio" id="feminino" value="FEMININO" name="sexo" required><label for="feminino">Feminino</label></div>
+                <div class="formulario-radio-item"><input type="radio" id="masculino" value="M" name="sexo" required><label for="masculino">Masculino</label></div>
+                <div class="formulario-radio-item"><input type="radio" id="feminino" value="F" name="sexo" required><label for="feminino">Feminino</label></div>
             </div>
                 
         </div>
@@ -74,7 +71,7 @@ async function listar() {
             </div>
 
             <div class="formulario-item">
-                <label for="dataini">Data de Inicio:</label><input type="text" id="dataini" name="dataini" value="${dataAtual}" disabled="disabled">
+                <label for="dataini">Data de Inicio:</label><input type="text" id="dataini" name="dataini" placeholder="--/--/----" minlength="10" required>
             </div>
 
             <div class="formulario-item">
@@ -92,7 +89,7 @@ async function listar() {
     $('#datanasc').mask('00/00/0000');
     $('#telefone').mask('(00) 00000-0000');
     $('#ano').mask('0000');
-    $('#valorserv').mask('000.000.000.000,00', {reverse: true});
+    $('#valorserv').mask('000.000.000,00', {reverse: true});
     $('#dataini').mask('00/00/0000');
     $('#datafim').mask('00/00/0000');
     
@@ -133,6 +130,13 @@ async function enviarVeiculo() {
     let Vmodelo = document.querySelector("#modelo");
     let Vano = document.querySelector("#ano");
     let Vplaca = document.querySelector("#placa");
+    
+    let id_cliente = 0;
+    await fetch(api_url + `/clientes`).then(res => res.json()).then(data => {
+        data.forEach(item => {
+            id_cliente = item.id_cliente;
+        })
+    });
 
     await fetch(api_url + `/veiculos`,
         {
@@ -146,21 +150,36 @@ async function enviarVeiculo() {
                 fabricante: Vfabricante.value.toUpperCase(),
                 modelo: Vmodelo.value.toUpperCase(),
                 ano: Vano.value,
-                placa: Vplaca.value.toUpperCase()
+                placa: Vplaca.value.toUpperCase(),
+                cliente: id_cliente
 
             })
         }
     );
 }
 
-async function enviarServico() {
+async function enviarOrdemServico() {
 
     let StipoServ = document.querySelector("#tiposerv");
     let SvalorServ = document.querySelector("#valorserv");
     let SdataIni = document.querySelector("#dataini");
     let SdataFim = document.querySelector("#datafim");
 
-    await fetch(api_url + `/servicos`,
+    let id_cliente = 0;
+    await fetch(api_url + `/clientes`).then(res => res.json()).then(data => {
+        data.forEach(item => {
+            id_cliente = item.id_cliente;
+        })
+    });
+
+    let id_veiculo = 0;
+    await fetch(api_url + `/veiculos`).then(res => res.json()).then(data => {
+        data.forEach(item => {
+            id_veiculo = item.id_veiculo;
+        })
+    });
+
+    await fetch(api_url + `/ordemservico`,
         {
             headers:{
                 'Accept': 'application/json',
@@ -172,7 +191,9 @@ async function enviarServico() {
                 tiposerv: StipoServ.value.toUpperCase(),
                 valorserv: SvalorServ.value,
                 dataini: SdataIni.value,
-                datafim: SdataFim.value
+                datafim: SdataFim.value,
+                cliente: id_cliente,
+                veiculo: id_veiculo
 
             })
         }
@@ -185,7 +206,7 @@ form.addEventListener('submit', async function(event) {
 
     await enviarCliente();
     await enviarVeiculo();
-    await enviarServico();
+    await enviarOrdemServico();
 
     location.href = "index.html";
 });

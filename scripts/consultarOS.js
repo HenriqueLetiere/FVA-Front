@@ -1,39 +1,17 @@
 const localhost = "http://localhost:8080";
 const railway = "https://flask-production-fva.up.railway.app";
-const api_url = railway;
+const api_url = localhost;
 
 const ul = document.querySelector('ul');
 
 async function listar() {
-    let clientes = [];
-    let veiculos = [];
-    let servicos = [];
+    let os = [];
     let cont = 0;
 
-    await fetch(api_url + `/clientes`).then(res => res.json()).then(data => {
+    await fetch(api_url + `/ordemservico`).then(res => res.json()).then(data => {
         data.reverse().forEach(item => {
 
-            clientes[cont] = [item.id, item.nome, item.datanasc, item.rg, item.cpf, item.telefone, item.sexo];
-            cont ++;
-
-        })
-    });
-    cont = 0;
-
-    await fetch(api_url + `/veiculos`).then(res => res.json()).then(data => {
-        data.reverse().forEach(item => {
-
-            veiculos[cont] = [item.id, item.fabricante, item.modelo, item.ano, item.placa];
-            cont ++;
-
-        })
-    });
-    cont = 0;
-
-    await fetch(api_url + `/servicos`).then(res => res.json()).then(data => {
-        data.reverse().forEach(item => {
-
-            servicos[cont] = [item.id, item.tiposerv, item.valorserv, item.dataini, item.datafim];
+            os[cont] = [item.id_ordemServico, item.nome, item.tiposerv];
             cont ++;
 
         })
@@ -42,7 +20,7 @@ async function listar() {
 
     let cor = "";
     let bcor = 0;
-    while (cont < clientes.length) {
+    while (cont < os.length) {
  
         if (bcor == 0) {
             cor = "#f5f5f5";
@@ -54,14 +32,14 @@ async function listar() {
 
         ul.insertAdjacentHTML('beforeend', `<div class="lista" style="background-color: ${cor}">
 
-            <div class="id-lista"><p>${clientes[cont][0]}</p></div>
-            <div class="nome-lista"><p>${clientes[cont][1]}</p></div>
-            <div class="tipo-lista"><p>${servicos[cont][1]}</p></div>
+            <div class="id-lista"><p>${os[cont][0]}</p></div>
+            <div class="nome-lista"><p>${os[cont][1]}</p></div>
+            <div class="tipo-lista"><p>${os[cont][2]}</p></div>
             
             <div class="botao-lista">
-                <a href="ver-OS.html?id=${clientes[cont][0]}"><button id="botao-ver">Ver mais</button></a>
-                <button id="botao-editar" onclick="popup(${clientes[cont][0]})">Editar</button>
-                <button id="botao-excluir" onclick="del(${clientes[cont][0]})">Excluir</button>
+                <a href="ver-OS.html?id=${os[cont][0]}"><button id="botao-ver">Ver mais</button></a>
+                <button id="botao-editar" onclick="popup(${os[cont][0]})">Editar</button>
+                <button id="botao-excluir" onclick="del(${os[cont][0]})">Excluir</button>
             </div>
 
         </div>`);
@@ -70,7 +48,7 @@ async function listar() {
     }
 }
 
-async function popup(id) {
+async function popup(id_os) {
     const popup = document.querySelector("dialog");
     const btncliente = document.getElementById("popup-cliente");
     const btnveiculo = document.getElementById("popup-veiculo");
@@ -80,27 +58,21 @@ async function popup(id) {
     popup.showModal();
 
     btncliente.onclick = function() {
-        window.location.href = `editar-OS.html?id=${id}&editar=c`;
+        window.location.href = `editar-OS.html?id=${id_os}&editar=c`;
     }
     btnveiculo.onclick = function() { 
-        window.location.href = `editar-OS.html?id=${id}&editar=v`;
+        window.location.href = `editar-OS.html?id=${id_os}&editar=v`;
     }
     btnservico.onclick = function() {
-        window.location.href = `editar-OS.html?id=${id}&editar=s`;
+        window.location.href = `editar-OS.html?id=${id_os}&editar=s`;
     }
     btnvoltar.onclick = function() {
         popup.close();
     }
 }
 
-async function del(id) {
-    await fetch(api_url + `/clientes/${id}`, {
-        method: "DELETE",
-    })
-    await fetch(api_url + `/veiculos/${id}`, {
-        method: "DELETE",
-    })
-    await fetch(api_url + `/servicos/${id}`, {
+async function del(id_os) {
+    await fetch(api_url + `/ordemservico/${id_os}`, {
         method: "DELETE",
     })
 
