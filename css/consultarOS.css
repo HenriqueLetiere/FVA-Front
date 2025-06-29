@@ -338,7 +338,7 @@ a {
         height: 56px;
     }
     .id-topo, .nome-topo, .tipo-topo, .id-lista, .nome-lista, .tipo-lista{
-        margin-right: 25px;
+        margin-right: 10px;
     }
     .id-topo, .nome-topo, .tipo-topo {
         font-size: 14px;
@@ -347,12 +347,12 @@ a {
         font-size: 10px;
     }
     .id-topo, .id-lista {
-        width: 50px;
+        width: 80px;
         margin-left: 30px;
         margin-right: 40px;
     }
     .nome-topo, .tipo-topo, .nome-lista, .tipo-lista {
-        width: 220px;
+        width: 200px;
     }
     .botao-lista {
         width: 280px;
